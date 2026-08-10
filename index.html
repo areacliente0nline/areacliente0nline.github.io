@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAMAQ CAPITAL - Sociedade de Crédito Direto S/A</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --primary-light: #143d66;
+            --accent: #00d4aa;
+            --accent-dark: #00b894;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 14px rgba(0, 212, 170, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.45);
+        }
+
+        .btn-primary::after {
+            display: none !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            margin-top: 72px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d1f33 50%, var(--primary-light) 100%);
+            color: white;
+            padding: 120px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 560px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-hero-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+        }
+
+        .btn-hero-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent-dark);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray-500);
+        }
+
+        /* Sobre */
+        .sobre {
+            background: var(--gray-50);
+        }
+
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .sobre-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .sobre-content p {
+            color: var(--gray-600);
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .sobre-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .feature-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .sobre-image {
+            position: relative;
+        }
+
+        .sobre-image-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 14px;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 700;
+            text-align: right;
+        }
+
+        /* Serviços */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .servico-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servico-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .servico-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .servico-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 184, 148, 0.1) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+
+        .servico-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .servico-card p {
+            font-size: 15px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* Licenças */
+        .licencas {
+            background: var(--gray-50);
+        }
+
+        .licencas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .licenca-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .licenca-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .licenca-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .licenca-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .licenca-content p {
+            font-size: 15px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        .licenca-badge {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent-dark);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* Documentos Legais */
+        .documentos-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 28px;
+            border-radius: 100px;
+            border: 1px solid var(--gray-300);
+            background: white;
+            color: var(--gray-600);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .tab-content h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .tab-content p, .tab-content li {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .tab-content ul, .tab-content ol {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .tab-content li {
+            margin-bottom: 8px;
+        }
+
+        .tab-content .last-update {
+            display: inline-block;
+            background: var(--gray-100);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 64px 24px 32px;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo-icon {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--gray-300);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-legal {
+            max-width: 700px;
+        }
+
+        .footer-legal p {
+            font-size: 13px;
+            color: var(--gray-500);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .footer-legal strong {
+            color: var(--gray-300);
+        }
+
+        .footer-copyright {
+            text-align: right;
+        }
+
+        .footer-copyright p {
+            font-size: 13px;
+            color: var(--gray-500);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .servicos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid var(--gray-200);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+            }
+
+            .servicos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .licencas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sobre-features {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-copyright {
+                text-align: center;
+            }
+
+            .tab-content {
+                padding: 28px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">BQ</div>
+                <div class="logo-text">BAMAQ <span>CAPITAL</span></div>
+            </a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#licencas">Licenças</a></li>
+                    <li><a href="#documentos">Documentos</a></li>
+                    <li><a href="#contato" class="btn-primary">Fale Conosco</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Instituição supervisionada pelo Banco Central
+            </div>
+            <h1>Soluções de crédito <span>inteligentes</span> para o seu futuro</h1>
+            <p>A BAMAQ CAPITAL é uma Sociedade de Crédito Direto (SCD) autorizada pelo Banco Central do Brasil, oferecendo soluções financeiras modernas, seguras e transparentes.</p>
+            <div class="hero-buttons">
+                <a href="#servicos" class="btn-hero-primary">Conheça nossos serviços →</a>
+                <a href="#sobre" class="btn-hero-secondary">Saiba mais</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>SCD</h3>
+                    <p>Sociedade de Crédito Direto</p>
+                </div>
+                <div class="stat-item">
+                    <h3>BCB</h3>
+                    <p>Autorizada pelo Banco Central</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2022</h3>
+                    <p>Fundada em novembro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre" id="sobre">
+        <div class="section-container">
+            <div class="sobre-grid">
+                <div class="sobre-content">
+                    <span class="section-tag">Quem Somos</span>
+                    <h3>Uma instituição financeira comprometida com a inovação</h3>
+                    <p>A <strong>BAMAQ CAPITAL SOCIEDADE DE CRÉDITO DIRETO S/A</strong> é uma instituição financeira autorizada pelo Banco Central do Brasil a operar como Sociedade de Crédito Direto (SCD). Fundada em novembro de 2022, nossa missão é democratizar o acesso ao crédito no Brasil por meio de tecnologia e processos ágeis.</p>
+                    <p>Com sede em Contagem, Minas Gerais, atuamos com total transparência, segurança e conformidade regulatória, sempre priorizando a melhor experiência para nossos clientes.</p>
+                    
+                    <div class="sobre-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Segurança</h4>
+                                <p>Proteção de dados e transações</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Transparência</h4>
+                                <p>Sem taxas ocultas ou surpresas</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Tecnologia</h4>
+                                <p>Plataforma digital moderna</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">✓</div>
+                            <div>
+                                <h4>Conformidade</h4>
+                                <p>100% alinhada ao BCB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-image">
+                    <div class="sobre-image-card">
+                        <h3 style="font-size: 20px; color: var(--primary); margin-bottom: 24px; font-weight: 700;">Dados da Empresa</h3>
+                        <div class="info-row">
+                            <span class="info-label">Razão Social</span>
+                            <span class="info-value">BAMAQ CAPITAL SCD S/A</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">CNPJ</span>
+                            <span class="info-value">48.528.314/0001-98</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Natureza Jurídica</span>
+                            <span class="info-value">Sociedade Anônima</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Fundação</span>
+                            <span class="info-value">07 de novembro de 2022</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Sede</span>
+                            <span class="info-value">Contagem, MG</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Atividade</span>
+                            <span class="info-value">Crédito Direto</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Supervisão</span>
+                            <span class="info-value">Banco Central do Brasil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Nossos Serviços</span>
+                <h2>Soluções financeiras para você</h2>
+                <p>Oferecemos produtos e serviços de crédito desenvolvidos para atender às suas necessidades com agilidade e segurança.</p>
+            </div>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="servico-icon">💳</div>
+                    <h3>Empréstimo Pessoal</h3>
+                    <p>Crédito pessoal com taxas competitivas, aprovação rápida e pagamento em até 48x. Solução ideal para realizar seus projetos pessoais.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">🏢</div>
+                    <h3>Crédito para Empresas</h3>
+                    <p>Linhas de crédito corporativas para capital de giro, expansão de negócios e investimentos. Soluções sob medida para PJs.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">📱</div>
+                    <h3>Plataforma Digital</h3>
+                    <p>Acesse sua conta, acompanhe contratos, realize pagamentos e simule novas operações diretamente pelo celular ou computador.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">🔄</div>
+                    <h3>Portabilidade de Dívida</h3>
+                    <p>Transfira suas dívidas de outras instituições para a BAMAQ CAPITAL com condições mais vantajosas e parcelas reduzidas.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">📊</div>
+                    <h3>Antecipação de Recebíveis</h3>
+                    <p>Antecipe recebíveis de vendas à prazo e melhore o fluxo de caixa da sua empresa de forma rápida e descomplicada.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">🛡️</div>
+                    <h3>Seguros e Garantias</h3>
+                    <p>Oferecemos opções de seguros e garantias para proteger você e suas operações de crédito contra imprevistos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Licenças -->
+    <section class="licencas" id="licencas">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Licenças e Regulamentação</span>
+                <h2>Autorizações e Certificações</h2>
+                <p>Operamos em total conformidade com a legislação brasileira e as normativas do Banco Central do Brasil.</p>
+            </div>
+            <div class="licencas-grid">
+                <div class="licenca-card">
+                    <div class="licenca-icon">🏛️</div>
+                    <div class="licenca-content">
+                        <h3>Banco Central do Brasil</h3>
+                        <p>Instituição autorizada pelo Banco Central do Brasil a operar como Sociedade de Crédito Direto (SCD), conforme as normas do Conselho Monetário Nacional.</p>
+                        <span class="licenca-badge">Autorização Ativa</span>
+                    </div>
+                </div>
+                <div class="licenca-card">
+                    <div class="licenca-icon">📋</div>
+                    <div class="licenca-content">
+                        <h3>Registro na Receita Federal</h3>
+                        <p>Inscrita no CNPJ sob o nº 48.528.314/0001-98, com situação cadastral ativa e regular perante a Receita Federal do Brasil.</p>
+                        <span class="licenca-badge">CNPJ Ativo</span>
+                    </div>
+                </div>
+                <div class="licenca-card">
+                    <div class="licenca-icon">⚖️</div>
+                    <div class="licenca-content">
+                        <h3>Registro na Junta Comercial</h3>
+                        <p>Regularmente registrada na Junta Comercial do Estado de Minas Gerais (JUCEMG), cumprindo todas as obrigações societárias.</p>
+                        <span class="licenca-badge">Registro Ativo</span>
+                    </div>
+                </div>
+                <div class="licenca-card">
+                    <div class="licenca-icon">🔒</div>
+                    <div class="licenca-content">
+                        <h3>Lei Geral de Proteção de Dados (LGPD)</h3>
+                        <p>Totalmente adequada à Lei nº 13.709/2018 (LGPD), garantindo a proteção e privacidade dos dados pessoais de nossos clientes.</p>
+                        <span class="licenca-badge">Conforme LGPD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentos Legais -->
+    <section id="documentos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Documentos Legais</span>
+                <h2>Política de Privacidade e Termos de Uso</h2>
+                <p>Transparência é um de nossos pilares. Leia atentamente nossos documentos legais.</p>
+            </div>
+
+            <div class="documentos-tabs">
+                <button class="tab-btn active" onclick="showTab('privacidade')">Política de Privacidade</button>
+                <button class="tab-btn" onclick="showTab('termos')">Termos de Uso</button>
+            </div>
+
+            <!-- Política de Privacidade -->
+            <div class="tab-content active" id="privacidade">
+                <span class="last-update">Última atualização: 10 de agosto de 2026</span>
+                <h3>Política de Privacidade</h3>
+                
+                <p>A <strong>BAMAQ CAPITAL SOCIEDADE DE CRÉDITO DIRETO S/A</strong>, inscrita no CNPJ sob o nº 48.528.314/0001-98, valoriza a privacidade e a segurança das informações de seus clientes, parceiros e usuários. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos seus dados pessoais.</p>
+                
+                <h4>1. Dados Coletados</h4>
+                <p>Podemos coletar as seguintes categorias de dados pessoais:</p>
+                <ul>
+                    <li><strong>Dados de identificação:</strong> nome completo, CPF, RG, data de nascimento, filiação, nacionalidade e estado civil;</li>
+                    <li><strong>Dados de contato:</strong> endereço residencial, e-mail, telefone fixo e celular;</li>
+                    <li><strong>Dados financeiros:</strong> renda, patrimônio, informações bancárias, histórico de crédito e dados de transações;</li>
+                    <li><strong>Dados de navegação:</strong> endereço IP, cookies, informações do dispositivo e padrões de uso do site e aplicativos.</li>
+                </ul>
+
+                <h4>2. Finalidades do Tratamento</h4>
+                <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+                <ul>
+                    <li>Análise de crédito e concessão de empréstimos;</li>
+                    <li>Cumprimento de obrigações legais e regulatórias impostas pelo Banco Central e outras autoridades;</li>
+                    <li>Prevenção à fraude e lavagem de dinheiro;</li>
+                    <li>Comunicação sobre produtos, serviços e atualizações contratuais;</li>
+                    <li>Melhoria contínua de nossos produtos e serviços;</li>
+                    <li>Atendimento ao cliente e suporte técnico.</li>
+                </ul>
+
+                <h4>3. Compartilhamento de Dados</h4>
+                <p>Seus dados poderão ser compartilhados com:</p>
+                <ul>
+                    <li>Instituições financeiras parceiras, exclusivamente para fins de análise de crédito e liquidação de operações;</li>
+                    <li>Bureaus de crédito (Serasa, SPC, Boa Vista SCPC) para consultas e registros de histórico de crédito;</li>
+                    <li>Autoridades públicas, quando exigido por lei ou ordem judicial;</li>
+                    <li>Prestadores de serviços contratados que auxiliam em nossas operações, sob obrigação de confidencialidade.</li>
+                </ul>
+
+                <h4>4. Direitos do Titular</h4>
+                <p>Em conformidade com a LGPD, você possui os seguintes direitos:</p>
+                <ul>
+                    <li>Acesso aos seus dados pessoais;</li>
+                    <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+                    <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou excessivos;</li>
+                    <li>Portabilidade dos dados a outro fornecedor de serviço;</li>
+                    <li>Revogação do consentimento, quando aplicável;</li>
+                    <li>Informação sobre o compartilhamento de dados.</li>
+                </ul>
+
+                <h4>5. Segurança da Informação</h4>
+                <p>Adotamos medidas técnicas e administrativas adequadas para proteger seus dados pessoais contra acessos não autorizados, destruição, perda ou alteração. Utilizamos criptografia, firewalls, controles de acesso e monitoramento contínuo de nossos sistemas.</p>
+
+                <h4>6. Contato do Encarregado de Dados (DPO)</h4>
+                <p>Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato com nosso Encarregado de Dados pelo e-mail: <strong>privacidade@bamaqcapital.com.br</strong></p>
+
+                <h4>7. Alterações na Política</h4>
+                <p>Esta Política de Privacidade poderá ser atualizada periodicamente. Recomendamos que você a consulte regularmente. Notificaremos sobre alterações significativas por meio de nossos canais oficiais de comunicação.</p>
+            </div>
+
+            <!-- Termos de Uso -->
+            <div class="tab-content" id="termos">
+                <span class="last-update">Última atualização: 10 de agosto de 2026</span>
+                <h3>Termos de Uso</h3>
+                
+                <p>Bem-vindo aos Termos de Uso da <strong>BAMAQ CAPITAL SOCIEDADE DE CRÉDITO DIRETO S/A</strong> ("BAMAQ CAPITAL", "nós" ou "nosso"). Ao acessar ou utilizar nosso site, aplicativos e serviços, você concorda com os termos e condições aqui descritos. Leia atentamente antes de utilizar nossos serviços.</p>
+                
+                <h4>1. Definições</h4>
+                <ul>
+                    <li><strong>"Usuário" ou "Cliente":</strong> pessoa física ou jurídica que utiliza os serviços da BAMAQ CAPITAL;</li>
+                    <li><strong>"Serviços":</strong> produtos e serviços de crédito oferecidos pela BAMAQ CAPITAL;</li>
+                    <li><strong>"Plataforma":</strong> site, aplicativos e demais canais digitais da BAMAQ CAPITAL;</li>
+                    <li><strong>"Contrato":</strong> documento formal que disciplina as condições de uma operação de crédito específica.</li>
+                </ul>
+
+                <h4>2. Elegibilidade</h4>
+                <p>Para utilizar nossos serviços, você deve:</p>
+                <ul>
+                    <li>Ser maior de 18 anos e possuir plena capacidade civil;</li>
+                    <li>Ser residente e domiciliado no Brasil;</li>
+                    <li>Possuir CPF regular e ativo na Receita Federal;</li>
+                    <li>Fornecer informações verdadeiras, precisas e atualizadas;</li>
+                    <li>Não estar inscrito em cadastros de inadimplentes de forma impeditive à concessão de crédito.</li>
+                </ul>
+
+                <h4>3. Cadastro e Conta do Usuário</h4>
+                <p>O acesso a determinados serviços requer a criação de uma conta. Você é responsável por:</p>
+                <ul>
+                    <li>Manter a confidencialidade de sua senha e dados de acesso;</li>
+                    <li>Restringir o acesso ao seu computador e dispositivos móveis;</li>
+                    <li>Assumir total responsabilidade por todas as atividades realizadas em sua conta;</li>
+                    <li>Notificar imediatamente a BAMAQ CAPITAL sobre qualquer uso não autorizado de sua conta.</li>
+                </ul>
+
+                <h4>4. Condições de Crédito</h4>
+                <p>As operações de crédito estão sujeitas à análise e aprovação da BAMAQ CAPITAL. As condições de cada operação, incluindo taxas de juros, prazos, valor das parcelas e encargos, serão informadas no momento da contratação e formalizadas em contrato específico. O CET (Custo Efetivo Total) será sempre informado de forma clara e transparente.</p>
+
+                <h4>5. Obrigações do Cliente</h4>
+                <p>Ao contratar nossos serviços, o cliente se compromete a:</p>
+                <ul>
+                    <li>Fornecer informações verdadeiras e atualizadas;</li>
+                    <li>Cumprir integralmente as obrigações assumidas nos contratos;</li>
+                    <li>Utilizar os serviços apenas para fins lícitos;</li>
+                    <li>Não praticar atos de fraude, falsidade ou qualquer conduta ilícita;</li>
+                    <li>Manter seus dados cadastrais sempre atualizados.</li>
+                </ul>
+
+                <h4>6. Propriedade Intelectual</h4>
+                <p>Todo o conteúdo disponível em nossa Plataforma, incluindo textos, imagens, logotipos, marcas, software e demais materiais, é de propriedade exclusiva da BAMAQ CAPITAL ou de seus licenciadores, sendo protegido pelas leis de propriedade intelectual. É vedada a reprodução, distribuição ou qualquer outra forma de utilização sem autorização prévia e expressa.</p>
+
+                <h4>7. Limitação de Responsabilidade</h4>
+                <p>A BAMAQ CAPITAL não se responsabiliza por:</p>
+                <ul>
+                    <li>Indisponibilidade temporária da Plataforma por motivos de manutenção, falhas técnicas ou caso fortuito;</li>
+                    <li>Danos decorrentes de acesso não autorizado resultante de negligência do usuário na guarda de suas credenciais;</li>
+                    <li>Informações incorretas fornecidas pelo usuário;</li>
+                    <li>Atos de terceiros que violem nossos sistemas de segurança.</li>
+                </ul>
+
+                <h4>8. Rescisão</h4>
+                <p>A BAMAQ CAPITAL reserva-se o direito de suspender ou encerrar o acesso do usuário à Plataforma, sem aviso prévio, em caso de violação destes Termos de Uso, prática de atos ilícitos ou por determinação de autoridade competente.</p>
+
+                <h4>9. Disposições Gerais</h4>
+                <p>Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de Contagem, Estado de Minas Gerais, para dirimir quaisquer controvérsias decorrentes destes termos, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+                <h4>10. Contato</h4>
+                <p>Em caso de dúvidas sobre estes Termos de Uso, entre em contato conosco pelo e-mail <strong>atendimento@bamaqcapital.com.br</strong> ou pelo telefone <strong>0800 000 336-9100</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+        <div class="cta-container">
+            <h2>Pronto para começar?</h2>
+            <p>Entre em contato conosco e descubra as melhores soluções de crédito para você ou sua empresa.</p>
+            <a href="mailto:atendimento@bamaqcapital.com.br" class="btn-hero-primary">Fale com a BAMAQ CAPITAL →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-icon">BQ</div>
+                    <p>A BAMAQ CAPITAL é uma Sociedade de Crédito Direto autorizada pelo Banco Central do Brasil, comprometida em oferecer soluções financeiras seguras, transparentes e inovadoras.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" title="LinkedIn">in</a>
+                        <a href="#" class="social-link" title="Instagram">📷</a>
+                        <a href="#" class="social-link" title="Facebook">f</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#sobre">Quem Somos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#licencas">Licenças</a></li>
+                        <li><a href="#documentos">Documentos Legais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#documentos" onclick="showTab('privacidade')">Política de Privacidade</a></li>
+                        <li><a href="#documentos" onclick="showTab('termos')">Termos de Uso</a></li>
+                        <li><a href="#">Código de Defesa do Consumidor</a></li>
+                        <li><a href="#">Resoluções do Banco Central</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="tel:08000003369100">0800 000 336-9100</a></li>
+                        <li><a href="mailto:atendimento@bamaqcapital.com.br">atendimento@bamaqcapital.com.br</a></li>
+                        <li><a href="#">Ouvidoria</a></li>
+                        <li><a href="#">Canal de Denúncias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p><strong>BAMAQ CAPITAL SOCIEDADE DE CRÉDITO DIRETO S/A</strong></p>
+                    <p>CNPJ: 48.528.314/0001-98 | Inscrição Estadual: Isenta</p>
+                    <p>Rodovia BR-381, nº 2.111, Bloco A, Andar 01, Sala 05, Bairro Amazonas, Contagem/MG, CEP 32240-090</p>
+                    <p style="margin-top: 12px;"><strong>Instituição supervisionada pelo Banco Central do Brasil.</strong> Em caso de dúvidas, entre em contato pelo telefone 145 (custo de ligação local).</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>© 2026 BAMAQ CAPITAL SCD S/A</p>
+                    <p>Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.08)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
