@@ -23,7 +23,8 @@
   a { text-decoration: none; color: inherit; }
   svg { display: inline-block; vertical-align: middle; }
 
-  .header { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); z-index: 50; max-width: 900px; margin: 0 auto; }
+  .header { border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); z-index: 50; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 900px; margin: 0 auto; }
   .logo { font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
   .nav { display: flex; gap: 20px; }
   .nav a { color: var(--text-secondary); font-size: 14px; transition: color 0.2s; cursor: pointer; }
@@ -33,7 +34,7 @@
   .section-title { font-size: 28px; font-weight: 600; margin-bottom: 8px; text-align: center; }
   .section-sub { font-size: 16px; color: var(--text-secondary); text-align: center; margin-bottom: 32px; }
 
-  .hero { text-align: center; padding: 64px 24px; max-width: 900px; margin: 0 auto; }
+  .hero { text-align: center; padding: 64px 24px; }
   .hero h1 { font-size: 36px; font-weight: 600; margin-bottom: 12px; line-height: 1.15; }
   .hero p { font-size: 17px; color: var(--text-secondary); max-width: 520px; margin: 0 auto 28px; }
   .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 10px; font-size: 15px; font-weight: 500; cursor: pointer; border: none; transition: all 0.2s; }
@@ -72,7 +73,8 @@
   th { font-weight: 600; color: var(--text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
   tr:hover td { background: var(--surface-muted); }
 
-  .cta-bar { background: var(--surface-muted); border-radius: 12px; padding: 40px; text-align: center; margin: 32px auto; max-width: 900px; }
+  .cta-bar { background: var(--surface-muted); border-radius: 0; padding: 40px 24px; text-align: center; margin: 32px 0; }
+  .cta-bar-inner { max-width: 900px; margin: 0 auto; }
   .cta-bar h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
   .cta-bar p { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; }
 
@@ -95,7 +97,8 @@
   .faq-item.open .faq-a { max-height: 400px; }
   .faq-a-inner { padding-bottom: 18px; font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
 
-  .footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; max-width: 900px; margin: 0 auto; }
+  .footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; }
+  .footer-inner { max-width: 900px; margin: 0 auto; }
   .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
   .footer-links a { font-size: 13px; color: var(--text-secondary); cursor: pointer; }
   .footer-links a:hover { color: var(--text-primary); text-decoration: underline; }
@@ -133,6 +136,7 @@
 <body>
 
 <div class="header">
+  <div class="header-inner">
   <div class="logo">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="currentColor"/></svg>
     Finança Rápida
@@ -143,6 +147,7 @@
     <a onclick="scrollToId('vantagens')">Vantagens</a>
     <a onclick="scrollToId('faq')">FAQ</a>
   </nav>
+  </div>
 </div>
 
 <div class="hero" id="inicio" style="position:relative;overflow:hidden;border-radius:0;">
@@ -152,7 +157,7 @@
     <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
   </div>
   <!-- Content -->
-  <div style="position:relative;z-index:1;color:#fff;">
+  <div style="position:relative;z-index:1;color:#fff;max-width:900px;margin:0 auto;">
     <h1 style="color:#fff;">Crédito que cabe no seu bolso</h1>
     <p style="color:rgba(255,255,255,0.85);max-width:520px;margin:0 auto 28px;">Empréstimo pessoal, empresarial e consignado para aposentados com as menores taxas do mercado. Aprovação em minutos, dinheiro na conta em até 24h.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
@@ -272,12 +277,14 @@
 </div>
 
 <div class="cta-bar">
+  <div class="cta-bar-inner">
   <h3>Não perca tempo em bancos</h3>
   <p>Nossa equipe analisa seu perfil em minutos e te apresenta a melhor proposta. Sem filas, sem papelada.</p>
   <a class="btn btn-wa" href="https://wa.me/551626161084?text=Olá!%20Quero%20uma%20análise%20de%20crédito" target="_blank">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M17.6 6.32A7.85 7.85 0 0 0 12 4a7.94 7.94 0 0 0-6.88 12.15l-1.1 4.01 4.1-1.08A7.93 7.93 0 0 0 20 12a7.85 7.85 0 0 0-2.4-5.68zM12 18.5a6.46 6.46 0 0 1-3.3-.91l-.24-.14-2.47.65.66-2.4-.16-.25a6.46 6.46 0 0 1 5.51-9.95 6.46 6.46 0 0 1 6.45 6.45 6.47 6.47 0 0 1-6.45 6.45zm3.55-4.85c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1s-.5.64-.62.77-.23.15-.43.05a5.4 5.4 0 0 1-1.58-.98 5.97 5.97 0 0 1-1.1-1.36c-.12-.2 0-.3.09-.4.09-.09.2-.23.3-.34.1-.12.13-.2.2-.33.06-.13.03-.24-.02-.34s-.44-1.06-.6-1.45c-.16-.38-.32-.33-.44-.34l-.37-.01a.72.72 0 0 0-.52.24c-.18.2-.68.66-.68 1.62s.7 1.88.79 2.01c.1.13 1.36 2.08 3.3 2.92.46.2.82.32 1.1.4.46.15.88.13 1.21.08.37-.05 1.17-.48 1.33-.94.17-.46.17-.85.12-.94-.05-.08-.18-.13-.38-.23z" fill="currentColor"/></svg>
     Quero minha proposta
   </a>
+  </div>
 </div>
 
 <div class="section" id="vantagens">
@@ -386,6 +393,7 @@
 </div>
 
 <div class="footer">
+  <div class="footer-inner">
   <div class="footer-links">
     <a onclick="openModal('privacy')">Política de Privacidade</a>
     <a onclick="openModal('terms')">Termos de Uso</a>
@@ -394,6 +402,7 @@
   <div style="margin-top:12px;font-size:12px;color:var(--text-tertiary);line-height:1.6;">
     <strong>Sedona Sociedade de Crédito Direto S.A.</strong> — CNPJ 57.173.208/0001-20<br>
     Praça Franklin Roosevelt, 183 - ANDAR 3 ESCR 31 — Consolação, São Paulo/SP — CEP 01303-020 — Brasil
+  </div>
   </div>
 </div>
 
